@@ -2,7 +2,21 @@
 A brief, succint guide for picking up the Python language. Each section contains definitions and an abudance of examples.
 ###### Feel free to suggest changes
 
+# Table of contents
+- [Introduction](#introduction)
+  * [1. Variables and types](#1-variables-and-types)
+  * [2. Conversions](#2-conversions)
+  * [Examples](#examples)
+  * [3. Conditional statement](#3-conditional-statement)
+  * [Examples](#examples-1)
+  * [4. Loops](#4-loops)
+- [Lists & Containers - Will be continued](#lists--containers---will-be-continued)
+- [Examples](#examples-2)
+- [Resources used](#resources-used)
+
+
 # Introduction
+
 ## 1. Variables and types
 - Variables are defined without specifying their types (*However, one can specify a type if wanted. See (1)*).
 - Through the types available, we can mention:
@@ -87,7 +101,7 @@ for i in range(start, end, step):
 while x > 10:
   # do something
 ```
-# Lists & Containers (Will be continued)
+# Lists & Containers - Will be continued
 - Lists can be seen as a container for multiple elements of the same type
 - They are represented using *'[]'*
 - To access an index, use the list variable and put the index inside square brackets.
