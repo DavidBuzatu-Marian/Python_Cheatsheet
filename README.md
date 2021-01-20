@@ -71,8 +71,36 @@ elif x % 2 == 0:
 else:
   x -= 1
 ```
-# Lists & Containers (Will be continued)
 
+## 4. Loops
+4.1. For loops
+- They are used to iterate over a range of values and execute the block instruction that many teams
+```python
+for i in range(start, end, step):
+  # do something
+```
+4.2 While loops
+- While loops execute as long as the expression verified is true.
+- The block statement is executed every time the while loop's condition is true
+```python
+# Looping as long as x is greater than 10
+while x > 10:
+  # do something
+```
+# Lists & Containers (Will be continued)
+- Lists can be seen as a container for multiple elements of the same type
+- They are represented using *'[]'*
+- To access an index, use the list variable and put the index inside square brackets.
+```python
+some_list = [1, 2, 3]
+# Print the second element
+print(some_list[1])
+```
+# Examples
+1. Initializing a list of size N, full of 0's
+```python
+example_list = [0 for i in range (N)]
+```
 
 
 ###### (1) Starting with Python 3.6, one can define a type for a variable as follows:
