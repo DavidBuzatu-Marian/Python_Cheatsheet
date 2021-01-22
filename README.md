@@ -1,19 +1,22 @@
 # Python Cheat Sheet
 A brief, succint guide for picking up the Python language. Each section contains definitions and an abudance of examples.
-###### Feel free to suggest changes
+## Feel free to suggest changes
 
 # Table of contents
+- [Table of contents](#table-of-contents)
 - [Introduction](#introduction)
   * [1. Variables and types](#1-variables-and-types)
   * [2. Conversions](#2-conversions)
-  * [Examples](#examples)
+  * [Examples (Conversions)](#examples)
   * [3. Conditional statement](#3-conditional-statement)
-  * [Examples](#examples-1)
+  * [Examples (Conditionals)](#examples-1)
   * [4. Loops](#4-loops)
-- [Lists & Containers - Will be continued](#lists--containers---will-be-continued)
-- [Examples](#examples-2)
+- [Lists](#lists)
+- [Examples (Lists)](#examples-2)
+- [Functions](#functions)
+  * [Recursive functions](#recursive-functions)
+- [Examples (Functions)](#examples--functions-)
 - [Resources used](#resources-used)
-
 
 # Introduction
 
@@ -101,19 +104,102 @@ for i in range(start, end, step):
 while x > 10:
   # do something
 ```
-# Lists & Containers - Will be continued
-- Lists can be seen as a container for multiple elements of the same type
-- They are represented using *'[]'*
+# Lists
+- Lists can be seen as a container for multiple elements of the same type.
+- They are represented using *'[]'*.
 - To access an index, use the list variable and put the index inside square brackets.
 ```python
 some_list = [1, 2, 3]
 # Print the second element
 print(some_list[1])
 ```
+- To create a sublist of a list, one can use the following notation:
+```python
+some_list = [1, 2, 3, 4, 5]
+sub_list = some_list[idx_start:idx_end]
+```
+where **idx_start** represents the starting index for the substring and **idx_end** the ending index (non-inclusive).
 # Examples
 1. Initializing a list of size N, full of 0's
 ```python
 example_list = [0 for i in range (N)]
+```
+2. Initializing a list of lists (matrix) of N rows and M columns
+```python
+example_matrix = [[0 for j in range (M)] for i in range (N)] 
+```
+
+# Functions
+- Functions are blocks of reusable code that may be used anywhere throughout a program.
+- They are composed of a header and body.
+- The head of a function is defined as:
+ - The **def** keyword
+ - a *name* for the function
+ - *parameters* of the function inside round brackets
+ - Colon *:*
+ E.g.:
+ ```python
+ def first_function(some_parameter):
+   # some action
+ ```
+- Parameters are values that the function might use in its block code
+E.g.: A function that gets a value and returns the value + 1
+```python
+def addOne(number):
+  return number + 1
+```
+- A function can return a value or not. A function without a return value is called *void* function.
+- A function can return any type of variable.
+- Parameters can me of two types: immutable or mutable.
+- Immutable types include: strings, integers, booleans.
+- Mutable types include: lists, objects, containers.
+## Recursive functions
+- Are functions that call themselves.
+- A well defined recursive function is composed of two things:
+ - The base case: defines the stopping condition for the recursion
+ - The general case: defines the part of code that is executed on each call that is not the base case
+
+# Examples (Functions)
+1. A function which returns True if the parameter passed is greater than 5, otherwise returns False
+```python
+def greaterThanFive(number):
+    if number > 5:
+        return True
+    return False
+```
+2. Function to calculate the nth Fibonacci number (recursively)
+```python
+def fibo(n):
+    if n == 0 or n == 1:
+        return 1
+    return fibo(n - 1) + fibo(n - 2)
+```
+3. Fibonnaci improved, using a list to memorise numbers calculated already
+```python
+def fibo(n, fib):
+    if n == 0 or n == 1:
+        return 1
+    if fib[n] != 0:
+        return fib[n]
+    fibonacci_value = fibo(n - 1, fib) + fibo(n - 2, fib)
+    fib[n] = fibonacci_value
+    return fibonacci_value
+list_fibo = [0 for i in range (0, 1001)]
+# function call. It won't print anything! How would you print the result?
+fibo(100, list_fibo)
+```
+4. Simplest and fastest Fibonacci function (non-recursive/iterative):
+```python
+def fibo_smartest(n):
+    if n == 0 or n == 1:
+        return 1
+    fibo_prev = 1
+    fibo_prev_prev = 1
+    for i in range(2, n + 1):
+        fibo_curr = fibo_prev + fibo_prev_prev
+        fibo_prev_prev = fibo_prev
+        fibo_prev = fibo_curr
+    return fibo_prev
 ```
 
 
@@ -123,6 +209,6 @@ x: int = 3
 some_string: str = "some string"
 ```
 
-
 # Resources used
 *Python Cheat Sheet [python:cours:mementopython3-english.pdf](https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf)*
+*Python function parameters passing [stackoverflow](https://stackoverflow.com/a/60979567/11023871)*
